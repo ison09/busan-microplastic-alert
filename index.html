@@ -13,7 +13,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f5f5f5;
+            background: linear-gradient(135deg, #e3f2fd 0%, #b3e5fc 100%);
             color: #333;
         }
 
@@ -24,20 +24,21 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
         }
 
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0277bd 0%, #01579b 100%);
             color: white;
-            padding: 20px;
+            padding: 25px 20px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .header h1 {
             font-size: 24px;
             margin-bottom: 5px;
+            font-weight: 700;
         }
 
         .header p {
@@ -48,7 +49,7 @@
         .content {
             flex: 1;
             overflow-y: auto;
-            padding-bottom: 70px;
+            padding-bottom: 80px;
         }
 
         .screen {
@@ -66,193 +67,246 @@
             to { opacity: 1; }
         }
 
-        .warning-banner {
+        .notice-box {
             background-color: #fff3cd;
             border: 1px solid #ffc107;
             border-radius: 8px;
             padding: 12px 15px;
             margin-bottom: 20px;
-            font-size: 13px;
+            font-size: 12px;
             color: #856404;
+            line-height: 1.5;
         }
 
-        .warning-banner strong {
+        .notice-box strong {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
+            font-size: 13px;
         }
 
-        .region-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+        .home-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #01579b;
             margin-bottom: 20px;
         }
 
-        .region-card {
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
+        .region-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
-        .region-card:hover {
-            border-color: #667eea;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        .region-btn {
+            background: white;
+            border: 2px solid #b3e5fc;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .region-btn:hover {
+            border-color: #0277bd;
+            box-shadow: 0 4px 12px rgba(2, 119, 189, 0.15);
             transform: translateY(-2px);
         }
 
+        .region-btn.active {
+            background: linear-gradient(135deg, #0277bd 0%, #01579b 100%);
+            color: white;
+            border-color: #01579b;
+        }
+
         .region-name {
+            display: block;
             font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 14px;
+            margin-bottom: 6px;
         }
 
-        .risk-badge {
-            display: inline-block;
-            padding: 6px 12px;
-            border-radius: 20px;
+        .region-risk {
             font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .current-risk {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+            border: 2px solid #4db6ac;
+        }
+
+        .current-region-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #00695c;
+            margin-bottom: 10px;
+        }
+
+        .risk-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .risk-label {
+            font-size: 16px;
             font-weight: 600;
             margin-bottom: 8px;
         }
 
-        .risk-1 { background-color: #d4edda; color: #155724; }
-        .risk-2 { background-color: #c3e6cb; color: #155724; }
-        .risk-3 { background-color: #fff3cd; color: #856404; }
-        .risk-4 { background-color: #f8d7da; color: #721c24; }
-        .risk-5 { background-color: #f5c6cb; color: #721c24; }
-
-        .risk-number {
+        .risk-desc {
             font-size: 13px;
             color: #666;
-            margin-top: 5px;
+            line-height: 1.5;
         }
+
+        .risk-1 { background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%); }
+        .risk-2 { background: linear-gradient(135deg, #8bc34a 0%, #558b2f 100%); }
+        .risk-3 { background: linear-gradient(135deg, #fbc02d 0%, #f57f17 100%); }
+        .risk-4 { background: linear-gradient(135deg, #ff9800 0%, #e65100 100%); }
+        .risk-5 { background: linear-gradient(135deg, #f44336 0%, #c62828 100%); }
 
         .map-container {
             position: relative;
             width: 100%;
             height: 400px;
-            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            background: linear-gradient(135deg, #e3f2fd 0%, #b3e5fc 100%);
             border-radius: 12px;
             margin-bottom: 20px;
             overflow: hidden;
-            border: 2px solid #80cbc4;
+            border: 2px solid #0277bd;
         }
 
-        .map-area {
+        .map-marker {
             position: absolute;
-            border-radius: 8px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             cursor: pointer;
-            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
             font-weight: bold;
-            font-size: 12px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            color: white;
+            font-size: 11px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 2px solid white;
         }
 
-        .map-area:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        .map-marker:hover {
+            transform: scale(1.15);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
         }
 
         .map-info {
-            background-color: #f9f9f9;
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .risk-level-item {
+            background: white;
+            border-left: 4px solid #0277bd;
             border-radius: 8px;
             padding: 15px;
-            font-size: 13px;
-            line-height: 1.6;
-            color: #666;
-        }
-
-        .risk-info-grid {
-            display: grid;
-            gap: 10px;
-        }
-
-        .risk-level {
-            background: white;
-            border-left: 4px solid #667eea;
-            border-radius: 8px;
-            padding: 12px 15px;
+            margin-bottom: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .risk-level.level-1 { border-left-color: #4caf50; }
-        .risk-level.level-2 { border-left-color: #8bc34a; }
-        .risk-level.level-3 { border-left-color: #ffc107; }
-        .risk-level.level-4 { border-left-color: #ff9800; }
-        .risk-level.level-5 { border-left-color: #f44336; }
+        .risk-level-item.level-1 { border-left-color: #4caf50; }
+        .risk-level-item.level-2 { border-left-color: #8bc34a; }
+        .risk-level-item.level-3 { border-left-color: #fbc02d; }
+        .risk-level-item.level-4 { border-left-color: #ff9800; }
+        .risk-level-item.level-5 { border-left-color: #f44336; }
 
-        .risk-label {
+        .risk-level-text h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #333;
+        }
+
+        .risk-level-text p {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .risk-level-emoji {
+            font-size: 28px;
+        }
+
+        .risk-table {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 20px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .table-header {
+            background: linear-gradient(135deg, #0277bd 0%, #01579b 100%);
+            color: white;
+            padding: 12px;
             font-weight: 600;
             font-size: 13px;
         }
 
-        .risk-desc {
+        .table-row {
+            display: grid;
+            grid-template-columns: 80px 1fr 60px;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 12px;
             font-size: 12px;
-            color: #999;
-            margin-top: 3px;
-        }
-
-        .selected-region {
-            font-size: 28px;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-
-        .risk-display {
-            display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
         }
 
-        .risk-circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 32px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        .table-row:last-child {
+            border-bottom: none;
         }
 
-        .risk-text h3 {
-            font-size: 18px;
-            margin-bottom: 5px;
+        .table-region {
+            font-weight: 600;
+            color: #01579b;
         }
 
-        .risk-text p {
-            font-size: 13px;
-            color: #666;
-            line-height: 1.4;
+        .table-risk {
+            font-weight: 600;
         }
 
         .info-section {
-            background: #f9f9f9;
+            background: white;
             border-radius: 8px;
             padding: 15px;
             margin-bottom: 15px;
+            border-left: 4px solid #0277bd;
         }
 
-        .info-section h4 {
-            font-size: 14px;
+        .info-section h3 {
+            font-size: 15px;
             font-weight: 600;
-            margin-bottom: 10px;
-            color: #667eea;
+            color: #01579b;
+            margin-bottom: 8px;
         }
 
         .info-section p {
@@ -262,50 +316,7 @@
             margin-bottom: 8px;
         }
 
-        .info-section p:last-child {
-            margin-bottom: 0;
-        }
-
-        .back-btn {
-            background-color: #667eea;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            transition: background-color 0.3s ease;
-        }
-
-        .back-btn:hover {
-            background-color: #764ba2;
-        }
-
-        .about-section {
-            background: white;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .about-section h3 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #667eea;
-        }
-
-        .about-section p {
-            font-size: 13px;
-            line-height: 1.6;
-            color: #666;
-            margin-bottom: 8px;
-        }
-
-        .about-section ul {
+        .info-section ul {
             margin-left: 15px;
             font-size: 13px;
             color: #666;
@@ -324,8 +335,8 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            height: 60px;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+            height: 70px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .nav-item {
@@ -335,23 +346,24 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            padding: 8px;
+            padding: 10px;
             transition: color 0.3s ease;
-            color: #999;
-            font-size: 12px;
-            gap: 4px;
+            color: #bbb;
+            text-align: center;
         }
 
         .nav-item.active {
-            color: #667eea;
+            color: #0277bd;
         }
 
         .nav-icon {
-            font-size: 20px;
+            font-size: 24px;
+            margin-bottom: 4px;
         }
 
         .nav-label {
-            font-size: 11px;
+            font-size: 10px;
+            font-weight: 500;
         }
 
         .content::-webkit-scrollbar {
@@ -363,12 +375,12 @@
         }
 
         .content::-webkit-scrollbar-thumb {
-            background: #888;
+            background: #0277bd;
             border-radius: 3px;
         }
 
         .content::-webkit-scrollbar-thumb:hover {
-            background: #555;
+            background: #01579b;
         }
     </style>
 </head>
@@ -382,192 +394,192 @@
         <div class="content">
             <!-- 홈 화면 -->
             <div id="home-screen" class="screen active">
-                <div class="warning-banner">
-                    <strong>⚠️ 안내</strong>
-                    본 서비스는 미니앱 시연을 위한 예시 데이터를 사용합니다. 실제 미세플라스틱 농도를 측정하거나 공식적인 환경 위험도를 판단하는 서비스가 아닙니다.
+                <div class="notice-box">
+                    <strong>⚠️ 중요 안내</strong>
+                    본 앱의 위험도는 실제 측정값이 아닌 예시 데이터입니다. 교육 및 시연 목적으로만 사용하세요.
                 </div>
 
-                <h2 style="font-size: 16px; margin-bottom: 15px; color: #333;">부산 주요 해안 지역</h2>
-                
-                <div class="region-list">
-                    <div class="region-card" onclick="showDetail(0)">
-                        <div class="region-name">해운대 해수욕장</div>
-                        <div class="risk-badge risk-4">4단계</div>
-                        <div class="risk-number">높음</div>
-                    </div>
-                    <div class="region-card" onclick="showDetail(1)">
-                        <div class="region-name">광안리 해수욕장</div>
-                        <div class="risk-badge risk-3">3단계</div>
-                        <div class="risk-number">보통</div>
-                    </div>
-                    <div class="region-card" onclick="showDetail(2)">
-                        <div class="region-name">일광해수욕장</div>
-                        <div class="risk-badge risk-2">2단계</div>
-                        <div class="risk-number">낮음</div>
-                    </div>
-                    <div class="region-card" onclick="showDetail(3)">
-                        <div class="region-name">송정해수욕장</div>
-                        <div class="risk-badge risk-5">5단계</div>
-                        <div class="risk-number">매우 높음</div>
-                    </div>
-                    <div class="region-card" onclick="showDetail(4)">
-                        <div class="region-name">다대포해수욕장</div>
-                        <div class="risk-badge risk-2">2단계</div>
-                        <div class="risk-number">낮음</div>
-                    </div>
-                    <div class="region-card" onclick="showDetail(5)">
-                        <div class="region-name">이기대</div>
-                        <div class="risk-badge risk-1">1단계</div>
-                        <div class="risk-number">매우 낮음</div>
+                <div class="home-title">🏖️ 부산 해안 지역</div>
+
+                <div class="region-grid">
+                    <button class="region-btn active" onclick="selectRegion(0, this)">
+                        <span class="region-name">해운대</span>
+                        <span class="region-risk">3단계</span>
+                    </button>
+                    <button class="region-btn" onclick="selectRegion(1, this)">
+                        <span class="region-name">광안리</span>
+                        <span class="region-risk">4단계</span>
+                    </button>
+                    <button class="region-btn" onclick="selectRegion(2, this)">
+                        <span class="region-name">송정</span>
+                        <span class="region-risk">2단계</span>
+                    </button>
+                    <button class="region-btn" onclick="selectRegion(3, this)">
+                        <span class="region-name">다대포</span>
+                        <span class="region-risk">3단계</span>
+                    </button>
+                    <button class="region-btn" onclick="selectRegion(4, this)">
+                        <span class="region-name">태종대</span>
+                        <span class="region-risk">2단계</span>
+                    </button>
+                    <button class="region-btn" onclick="selectRegion(5, this)">
+                        <span class="region-name">부산항</span>
+                        <span class="region-risk">5단계</span>
+                    </button>
+                </div>
+
+                <div class="current-risk">
+                    <div class="current-region-name" id="current-region-name">해운대</div>
+                    <div class="risk-circle risk-3" id="current-risk-circle">3</div>
+                    <div class="risk-label" id="current-risk-label">보통</div>
+                    <div class="risk-desc" id="current-risk-desc">
+                        미세플라스틱 농도가 중간 정도입니다. 방문 시 기본적인 주의가 필요합니다.
                     </div>
                 </div>
             </div>
 
             <!-- 지도 화면 -->
             <div id="map-screen" class="screen">
-                <h2 style="font-size: 16px; margin-bottom: 15px; color: #333;">지역별 위험도 지도</h2>
-                
+                <div class="home-title">🗺️ 지역별 위험도 지도</div>
+
                 <div class="map-container">
-                    <div class="map-area" style="top: 10%; left: 60%; width: 25%; height: 20%; background: linear-gradient(135deg, #ef5350 0%, #c62828 100%);" onclick="showDetail(3)" title="송정해수욕장">송정</div>
-                    <div class="map-area" style="top: 25%; left: 55%; width: 30%; height: 18%; background: linear-gradient(135deg, #f48024 0%, #e65100 100%);" onclick="showDetail(0)" title="해운대 해수욕장">해운대</div>
-                    <div class="map-area" style="top: 40%; left: 50%; width: 28%; height: 16%; background: linear-gradient(135deg, #fbc02d 0%, #f57f17 100%);" onclick="showDetail(1)" title="광안리 해수욕장">광안리</div>
-                    <div class="map-area" style="top: 55%; left: 40%; width: 25%; height: 15%; background: linear-gradient(135deg, #66bb6a 0%, #2e7d32 100%);" onclick="showDetail(2)" title="일광해수욕장">일광</div>
-                    <div class="map-area" style="top: 65%; left: 20%; width: 22%; height: 14%; background: linear-gradient(135deg, #66bb6a 0%, #2e7d32 100%);" onclick="showDetail(4)" title="다대포해수욕장">다대포</div>
-                    <div class="map-area" style="top: 75%; left: 70%; width: 20%; height: 13%; background: linear-gradient(135deg, #4caf50 0%, #1b5e20 100%);" onclick="showDetail(5)" title="이기대">이기대</div>
+                    <div class="map-marker risk-3" style="top: 25%; left: 60%;" onclick="selectRegionByMap(0)" title="해운대">해운대</div>
+                    <div class="map-marker risk-4" style="top: 30%; left: 55%;" onclick="selectRegionByMap(1)" title="광안리">광안리</div>
+                    <div class="map-marker risk-2" style="top: 15%; left: 50%;" onclick="selectRegionByMap(2)" title="송정">송정</div>
+                    <div class="map-marker risk-3" style="top: 55%; left: 20%;" onclick="selectRegionByMap(3)" title="다대포">다대포</div>
+                    <div class="map-marker risk-2" style="top: 60%; left: 75%;" onclick="selectRegionByMap(4)" title="태종대">태종대</div>
+                    <div class="map-marker risk-5" style="top: 40%; left: 35%;" onclick="selectRegionByMap(5)" title="부산항">부산항</div>
                 </div>
 
                 <div class="map-info">
-                    <strong>📍 지도 설명</strong>
-                    <p style="margin-top: 8px; margin-bottom: 0;">지도의 각 지역을 클릭하면 자세한 정보를 확인할 수 있습니다. 색상이 진할수록 위험도가 높습니다.</p>
+                    <strong>📍 안내</strong><br>
+                    지도의 마커를 클릭하면 해당 지역의 위험도 정보를 볼 수 있습니다. 색상이 진할수록 위험도가 높습니다.
                 </div>
             </div>
 
-            <!-- 위험도 정보 화면 -->
+            <!-- 위험도 화면 -->
             <div id="risk-screen" class="screen">
-                <h2 style="font-size: 16px; margin-bottom: 15px; color: #333;">미세플라스틱 위험도 기준</h2>
+                <div class="home-title">📊 미세플라스틱 위험도 기준</div>
 
-                <div class="risk-info-grid">
-                    <div class="risk-level level-1">
-                        <div>
-                            <div class="risk-label">1단계 - 매우 낮음</div>
-                            <div class="risk-desc">안전한 수준</div>
-                        </div>
-                        <div style="font-size: 24px;">🟢</div>
-                    </div>
-                    <div class="risk-level level-2">
-                        <div>
-                            <div class="risk-label">2단계 - 낮음</div>
-                            <div class="risk-desc">대체로 안전</div>
-                        </div>
-                        <div style="font-size: 24px;">🟡</div>
-                    </div>
-                    <div class="risk-level level-3">
-                        <div>
-                            <div class="risk-label">3단계 - 보통</div>
-                            <div class="risk-desc">주의 필요</div>
-                        </div>
-                        <div style="font-size: 24px;">🟠</div>
-                    </div>
-                    <div class="risk-level level-4">
-                        <div>
-                            <div class="risk-label">4단계 - 높음</div>
-                            <div class="risk-desc">위험 주의</div>
-                        </div>
-                        <div style="font-size: 24px;">🔴</div>
-                    </div>
-                    <div class="risk-level level-5">
-                        <div>
-                            <div class="risk-label">5단계 - 매우 높음</div>
-                            <div class="risk-desc">매우 위험</div>
-                        </div>
-                        <div style="font-size: 24px;">⚫</div>
-                    </div>
+                <div class="notice-box">
+                    <strong>ℹ️ 설명</strong>
+                    각 단계별 위험도의 의미와 권장사항입니다.
                 </div>
 
-                <div style="margin-top: 25px; background: #f0f4ff; border-radius: 8px; padding: 15px; border-left: 4px solid #667eea;">
-                    <h4 style="color: #667eea; font-size: 13px; font-weight: 600; margin-bottom: 8px;">💡 미세플라스틱이란?</h4>
-                    <p style="font-size: 12px; color: #666; line-height: 1.6; margin-bottom: 0;">
-                        미세플라스틱(Microplastic)은 5mm 이하의 작은 플라스틱 입자입니다. 해양 환경에서 플라스틱 쓰레기가 분해되어 생성되며, 해양 생물에 의해 섭취되어 생태계에 영향을 미칩니다.
-                    </p>
+                <div class="risk-level-item level-1">
+                    <div class="risk-level-text">
+                        <h3>1단계 - 매우 낮음</h3>
+                        <p>안전한 수준</p>
+                    </div>
+                    <div class="risk-level-emoji">🟢</div>
+                </div>
+
+                <div class="risk-level-item level-2">
+                    <div class="risk-level-text">
+                        <h3>2단계 - 낮음</h3>
+                        <p>대체로 안전</p>
+                    </div>
+                    <div class="risk-level-emoji">🟡</div>
+                </div>
+
+                <div class="risk-level-item level-3">
+                    <div class="risk-level-text">
+                        <h3>3단계 - 보통</h3>
+                        <p>주의 필요</p>
+                    </div>
+                    <div class="risk-level-emoji">🟠</div>
+                </div>
+
+                <div class="risk-level-item level-4">
+                    <div class="risk-level-text">
+                        <h3>4단계 - 높음</h3>
+                        <p>위험 주의</p>
+                    </div>
+                    <div class="risk-level-emoji">🔴</div>
+                </div>
+
+                <div class="risk-level-item level-5">
+                    <div class="risk-level-text">
+                        <h3>5단계 - 매우 높음</h3>
+                        <p>매우 위험</p>
+                    </div>
+                    <div class="risk-level-emoji">⚫</div>
+                </div>
+
+                <div class="home-title" style="margin-top: 25px;">📍 지역별 위험도</div>
+
+                <div class="risk-table">
+                    <div class="table-header">지역 / 단계 / 상태</div>
+                    <div class="table-row">
+                        <div class="table-region">해운대</div>
+                        <div>중간 정도</div>
+                        <div class="table-risk">3단계</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-region">광안리</div>
+                        <div>높은 편</div>
+                        <div class="table-risk">4단계</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-region">송정</div>
+                        <div>낮은 편</div>
+                        <div class="table-risk">2단계</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-region">다대포</div>
+                        <div>중간 정도</div>
+                        <div class="table-risk">3단계</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-region">태종대</div>
+                        <div>낮은 편</div>
+                        <div class="table-risk">2단계</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-region">부산항</div>
+                        <div style="color: #f44336; font-weight: 600;">매우 높음</div>
+                        <div class="table-risk">5단계</div>
+                    </div>
                 </div>
             </div>
 
             <!-- 정보 화면 -->
             <div id="info-screen" class="screen">
-                <h2 style="font-size: 16px; margin-bottom: 15px; color: #333;">앱 정보</h2>
+                <div class="home-title">ℹ️ 앱 정보</div>
 
-                <div class="about-section">
-                    <h3>📱 앱 소개</h3>
-                    <p>부산 미세플라스틱 알리미는 부산의 주요 해안 지역별 미세플라스틱 위험도를 시각적으로 제공하는 교육용 미니앱입니다.</p>
+                <div class="info-section">
+                    <h3>🌊 미세플라스틱이란?</h3>
+                    <p>미세플라스틱(Microplastic)은 5mm 이하의 작은 플라스틱 입자입니다. 해양 환경에서 플라스틱 쓰레기가 분해되어 생성되며, 해양 생물에 의해 섭취되어 생태계에 영향을 미칩니다.</p>
                 </div>
 
-                <div class="about-section">
+                <div class="info-section">
                     <h3>⚠️ 중요 안내</h3>
-                    <p style="color: #e53935; font-weight: 600;">본 서비스는 시연 목적의 예시 데이터를 사용하며, 실제 환경 측정 데이터가 아닙니다. 공식적인 환경 위험도를 판단하는 서비스가 아니므로 의사결정의 기준으로 사용하실 수 없습니다.</p>
+                    <p><strong>본 앱의 위험도는 실제 측정값이 아닙니다.</strong></p>
+                    <p>이 앱은 교육 및 시연 목적의 예시 데이터를 사용합니다. 공식적인 환경 위험도 판단은 아니며, 실제 미세플라스틱 정보는 해당 기관의 발표를 참고하세요.</p>
                 </div>
 
-                <div class="about-section">
-                    <h3>🌍 실제 미세플라스틱 정보</h3>
+                <div class="info-section">
+                    <h3>🔍 위험도 기준</h3>
+                    <p><strong>1단계:</strong> 매우 낮음 - 안전한 수준</p>
+                    <p><strong>2단계:</strong> 낮음 - 대체로 안전</p>
+                    <p><strong>3단계:</strong> 보통 - 기본적인 주의 필요</p>
+                    <p><strong>4단계:</strong> 높음 - 충분한 주의 필요</p>
+                    <p><strong>5단계:</strong> 매우 높음 - 최대한의 주의 필요</p>
+                </div>
+
+                <div class="info-section">
+                    <h3>📞 실제 정보 출처</h3>
                     <p>부산의 실제 해양 미세플라스틱 정보는 다음 기관에서 확인할 수 있습니다:</p>
                     <ul>
-                        <li>국립해양조사원 (Korea Institute of Ocean Science and Technology)</li>
+                        <li>국립해양조사원</li>
                         <li>부산시청 해양수산실</li>
                         <li>환경부 국립해양생물자원관</li>
                     </ul>
                 </div>
 
-                <div class="about-section">
+                <div class="info-section" style="margin-bottom: 30px;">
                     <h3>🛡️ 개인정보</h3>
-                    <p>본 앱은 개인정보를 수집하지 않으며, 모든 데이터는 로컬에서만 처리됩니다.</p>
-                </div>
-
-                <div class="about-section">
-                    <h3>📞 문의</h3>
-                    <p>이 미니앱은 해양 환경 교육 목적으로 제작되었습니다. 실제 데이터 기반 서비스에 대한 문의는 해당 정부 기관으로 연락하시기 바랍니다.</p>
-                </div>
-
-                <div style="text-align: center; margin-top: 30px; padding: 20px; color: #999; font-size: 12px;">
-                    <p>부산 미세플라스틱 알리미 v1.0</p>
-                    <p>© 2024 Busan Microplastic Alert</p>
-                </div>
-            </div>
-
-            <!-- 상세 정보 화면 -->
-            <div id="detail-screen" class="screen">
-                <button class="back-btn" onclick="backToHome()">← 돌아가기</button>
-
-                <div class="detail-header">
-                    <div class="selected-region" id="detail-region">해운대 해수욕장</div>
-                    
-                    <div class="risk-display">
-                        <div class="risk-circle" id="detail-risk-circle">4</div>
-                        <div class="risk-text">
-                            <h3 id="detail-risk-name">높음</h3>
-                            <p id="detail-risk-desc">미세플라스틱 위험도가 높아 주의가 필요합니다.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-section">
-                    <h4>⚠️ 위험 정보</h4>
-                    <p id="detail-warning">해당 지역은 미세플라스틱 농도가 높은 편입니다. 피부 접촉을 최소화하고 방문 후 충분한 세정이 권장됩니다.</p>
-                </div>
-
-                <div class="info-section">
-                    <h4>🌊 지역 정보</h4>
-                    <p id="detail-location">부산 수영구에 위치한 해변으로, 연중 많은 방문객이 찾는 인기 해수욕장입니다.</p>
-                </div>
-
-                <div class="info-section">
-                    <h4>💡 권장사항</h4>
-                    <p id="detail-recommendation">위험도가 높을 경우, 가능하면 물 출입을 제한하고 해변 산책 시 신발을 착용하는 것이 좋습니다.</p>
-                </div>
-
-                <div class="info-section">
-                    <h4>📊 시뮬레이션 데이터</h4>
-                    <p style="font-size: 12px; color: #999; line-height: 1.5;">
-                        본 화면의 모든 정보는 교육용 시뮬레이션 데이터입니다. 실제 미세플라스틱 농도와는 무관합니다. 정확한 환경 정보는 공식 기관의 발표를 참고하시기 바랍니다.
-                    </p>
+                    <p>본 앱은 개인정보를 수집하지 않습니다.</p>
                 </div>
             </div>
         </div>
@@ -595,117 +607,89 @@
     <script>
         const regions = [
             {
-                name: '해운대 해수욕장',
-                risk: 4,
-                riskName: '높음',
-                location: '부산 수영구에 위치한 해변으로, 연중 많은 방문객이 찾는 인기 해수욕장입니다.',
-                warning: '해당 지역은 미세플라스틱 농도가 높은 편입니다. 피부 접촉을 최소화하고 방문 후 충분한 세정이 권장됩니다.',
-                recommendation: '위험도가 높을 경우, 가능하면 물 출입을 제한하고 해변 산책 시 신발을 착용하는 것이 좋습니다.'
-            },
-            {
-                name: '광안리 해수욕장',
+                name: '해운대',
                 risk: 3,
-                riskName: '보통',
-                location: '수영구 남쪽에 위치한 해변으로, 광안대교 야경으로 유명합니다.',
-                warning: '중간 정도의 미세플라스틱 농도를 보입니다. 일반적인 주의가 필요합니다.',
-                recommendation: '방문 후 깨끗한 물로 충분히 세정하고, 아이들의 모래 섭취를 주의하세요.'
+                riskLabel: '보통',
+                desc: '미세플라스틱 농도가 중간 정도입니다. 방문 시 기본적인 주의가 필요합니다.'
             },
             {
-                name: '일광해수욕장',
+                name: '광안리',
+                risk: 4,
+                riskLabel: '높음',
+                desc: '미세플라스틱 농도가 높은 편입니다. 피부 접촉을 최소화하고 방문 후 세정이 권장됩니다.'
+            },
+            {
+                name: '송정',
                 risk: 2,
-                riskName: '낮음',
-                location: '기장군에 위치한 해변으로 상대적으로 깨끗한 편입니다.',
-                warning: '미세플라스틱 농도가 낮은 수준입니다. 비교적 안전하나 기본적인 주의는 필요합니다.',
-                recommendation: '일반적인 해변 위생 수칙을 지키면 안전합니다.'
+                riskLabel: '낮음',
+                desc: '미세플라스틱 농도가 낮은 편입니다. 일반적인 해변 위생 수칙을 지키면 안전합니다.'
             },
             {
-                name: '송정해수욕장',
+                name: '다대포',
+                risk: 3,
+                riskLabel: '보통',
+                desc: '미세플라스틱 농도가 중간 정도입니다. 방문 시 기본적인 주의가 필요합니다.'
+            },
+            {
+                name: '태종대',
+                risk: 2,
+                riskLabel: '낮음',
+                desc: '미세플라스틱 농도가 낮은 편입니다. 일반적인 해변 위생 수칙을 지키면 안전합니다.'
+            },
+            {
+                name: '부산항',
                 risk: 5,
-                riskName: '매우 높음',
-                location: '사상구에 위치한 해변으로, 도시 중심부와 가까워 해양 오염이 심한 편입니다.',
-                warning: '미세플라스틱 농도가 매우 높은 수준입니다. 가능한 한 방문을 제한하거나 특별한 주의가 필요합니다.',
-                recommendation: '방문 시 긴팔, 긴바지 착용을 권하며, 방문 후 즉시 깨끗한 물로 충분히 세정하세요.'
-            },
-            {
-                name: '다대포해수욕장',
-                risk: 2,
-                riskName: '낮음',
-                location: '사하구에 위치한 해변으로, 이기대와 가까운 자연해변입니다.',
-                warning: '미세플라스틱 농도가 낮은 수준입니다. 비교적 안전하나 기본적인 주의는 필요합니다.',
-                recommendation: '일반적인 해변 위생 수칙을 지키면 안전합니다.'
-            },
-            {
-                name: '이기대',
-                risk: 1,
-                riskName: '매우 낮음',
-                location: '사하구 구남동의 해식 절벽으로, 자연 상태가 잘 보존된 곳입니다.',
-                warning: '미세플라스틱 농도가 매우 낮은 수준입니다. 가장 안전한 지역 중 하나입니다.',
-                recommendation: '자연 상태를 훼손하지 않도록 주의하며 방문하세요.'
+                riskLabel: '매우 높음',
+                desc: '미세플라스틱 농도가 매우 높습니다. 가능하면 방문을 피하고, 방문 시 최대한의 주의가 필요합니다.'
             }
         ];
 
-        function switchScreen(screenId, navItem) {
-            const screens = document.querySelectorAll('.screen');
-            screens.forEach(screen => screen.classList.remove('active'));
-            document.getElementById(screenId).classList.add('active');
+        let currentRegionIndex = 0;
 
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => item.classList.remove('active'));
-            navItem.classList.add('active');
-
-            document.querySelector('.content').scrollTop = 0;
-        }
-
-        function showDetail(index) {
-            const region = regions[index];
+        function selectRegion(index, button) {
+            currentRegionIndex = index;
+            updateRiskDisplay();
             
-            document.getElementById('detail-region').textContent = region.name;
-            document.getElementById('detail-risk-name').textContent = region.riskName;
-            document.getElementById('detail-risk-desc').textContent = getRiskDescription(region.risk);
-            document.getElementById('detail-warning').textContent = region.warning;
-            document.getElementById('detail-location').textContent = region.location;
-            document.getElementById('detail-recommendation').textContent = region.recommendation;
+            document.querySelectorAll('.region-btn').forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+            });
+        }
 
-            const riskCircle = document.getElementById('detail-risk-circle');
+        function selectRegionByMap(index) {
+            currentRegionIndex = index;
+            updateRiskDisplay();
+            switchScreen('home-screen', document.querySelectorAll('.nav-item')[0]);
+        }
+
+        function updateRiskDisplay() {
+            const region = regions[currentRegionIndex];
+            const riskClass = `risk-${region.risk}`;
+            
+            document.getElementById('current-region-name').textContent = region.name;
+            const riskCircle = document.getElementById('current-risk-circle');
             riskCircle.textContent = region.risk;
-            riskCircle.style.background = getRiskColor(region.risk);
+            riskCircle.className = `risk-circle ${riskClass}`;
+            document.getElementById('current-risk-label').textContent = region.riskLabel;
+            document.getElementById('current-risk-desc').textContent = region.desc;
+        }
 
-            const screens = document.querySelectorAll('.screen');
-            screens.forEach(screen => screen.classList.remove('active'));
-            document.getElementById('detail-screen').classList.add('active');
-
+        function switchScreen(screenId, navItem) {
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            
+            document.getElementById(screenId).classList.add('active');
+            
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            navItem.classList.add('active');
+            
             document.querySelector('.content').scrollTop = 0;
         }
 
-        function getRiskDescription(risk) {
-            const descriptions = {
-                1: '안전한 수준으로 큰 걱정 없이 방문할 수 있습니다.',
-                2: '대체로 안전하나 기본적인 주의가 필요합니다.',
-                3: '주의가 필요하며, 기본적인 위생 수칙을 지켜야 합니다.',
-                4: '위험이 높아 충분한 주의가 필요합니다.',
-                5: '매우 위험하므로 가능하면 피하고, 방문 시 최대한의 주의가 필요합니다.'
-            };
-            return descriptions[risk] || '위험도 정보를 확인해주세요.';
-        }
-
-        function getRiskColor(risk) {
-            const colors = {
-                1: 'linear-gradient(135deg, #4caf50 0%, #1b5e20 100%)',
-                2: 'linear-gradient(135deg, #8bc34a 0%, #558b2f 100%)',
-                3: 'linear-gradient(135deg, #fbc02d 0%, #f57f17 100%)',
-                4: 'linear-gradient(135deg, #f48024 0%, #e65100 100%)',
-                5: 'linear-gradient(135deg, #ef5350 0%, #c62828 100%)'
-            };
-            return colors[risk] || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-        }
-
-        function backToHome() {
-            const homeScreen = document.querySelector('.nav-item');
-            switchScreen('home-screen', homeScreen);
-        }
-
-        window.addEventListener('load', () => {
-            document.querySelector('.content').scrollTop = 0;
+        document.addEventListener('DOMContentLoaded', () => {
+            updateRiskDisplay();
         });
     </script>
 </body>
